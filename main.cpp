@@ -12,7 +12,7 @@ int main() {
 	printf("process:%s\n%s\n", s1, s2);
 }
 
-void getline(char *s)  //Íùs1 ºÍ s2ÖĞ¶ÁÈë×Ö·û´®£¬ÕûÌå¶ÁÈëÖ»ÓĞÔÚ³õÊ¼»¯Ê±¿ÉÒÔ£¬Ö®ºóÖ»ÄÜÖğ×Ö·û´®ÊäÈë
+void getline(char *s)  //å¾€s1 å’Œ s2ä¸­è¯»å…¥å­—ç¬¦ä¸²ï¼Œæ•´ä½“è¯»å…¥åªæœ‰åœ¨åˆå§‹åŒ–æ—¶å¯ä»¥ï¼Œä¹‹ååªèƒ½é€å­—ç¬¦ä¸²è¾“å…¥
 {
 	char c;
 	int i = 0;
@@ -23,7 +23,7 @@ void getline(char *s)  //Íùs1 ºÍ s2ÖĞ¶ÁÈë×Ö·û´®£¬ÕûÌå¶ÁÈëÖ»ÓĞÔÚ³õÊ¼»¯Ê±¿ÉÒÔ£¬Ö®º
 	s[i] = '\0';
 }
 
-void delchar(char *s1, char *s2)  //É¾³ıs1 ÖĞºÍs2ÏàÍ¬µÄ×Ö·û
+/*void delchar(char *s1, char *s2)  //åˆ é™¤s1 ä¸­å’Œs2ç›¸åŒçš„å­—ç¬¦
 {
 	for (int i = 0; (i < MAXLENGTH - 1) && (s1[i] != '\0'); i++) {
 		for (int j = 0; (j < MAXLENGTH - 1) && (s2[j] != '\0'); j++)
@@ -36,4 +36,16 @@ void delchar(char *s1, char *s2)  //É¾³ıs1 ÖĞºÍs2ÏàÍ¬µÄ×Ö·û
 
 		}
 	}
+}*/
+
+void delchar(char *s1, char *s2)
+{
+	int i, j, k;
+	for(i = k = 0; s1[i] != '\0'; i++){
+		for(j = 0; s2[j] != '\0'; j++){
+			if(s2[j] == '\0')  //end of string: no match
+				s1[k++] = s1[i]; 
+		}
+	}
+	s1[k] = '\0';
 }
