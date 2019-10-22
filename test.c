@@ -1,18 +1,33 @@
 #include<stdio.h>
 
-unsigned rightrot(unsigned x, int n);
+void escape(char *s, char *t);
 
 int main() {
-	unsigned int i = 16, j;
-	j = rightrot(i, 6);
-	printf("%d",j);	
+	char s[10], *t;
+	t = "12	3";
+	escape(s, t);
+	printf("%s", s);
+	
 }
 
-unsigned int rightrot(unsigned x, int n)
-{
-	unsigned intermediate = ~(~0 << n) & x;
-	x = x >> n;
-	intermediate = intermediate << (8 * sizeof(int) - n);
-	x = x | intermediate;
-	return x;
+void escape(char *s, char *t) {
+	while ((*t) != '\0') {
+		switch (*t) {
+		case '\t': 
+			*s++ = '\\';
+			t++;
+			*s++ = 't';
+			break;
+		case'\n':
+			*s++ = '\\';
+			*s++ = 'n';
+			t++;
+			break;
+		default:
+			*s++ = *t++;
+			break;
+		}
+
+	}
+	*s = '\0';
 }
