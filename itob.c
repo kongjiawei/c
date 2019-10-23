@@ -19,7 +19,7 @@ void itob(int n, char *s, int b)
 	sign = n;
 	i = 0;
 	do {
-		s[i++] = abs(n % b) + '0'; //将数字转化为字符
+		s[i++] = abs(n % b) + '0'; //陆芦脢媒脳脰脳陋禄炉脦陋脳脰路没
 	} while ((n = n / b) != 0);
 	if (sign < 0)
 		s[i++] = '-';
